@@ -6,8 +6,8 @@ from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms#, utils
-# import torch.optim as optim
+from torchvision import transforms
+import coremltools as ct
 
 import numpy as np
 from PIL import Image
@@ -115,10 +115,14 @@ def main():
             traced_model = torch.jit.trace(net, inputs_test)
             m = torch.jit.script(traced_model)
             d1,d2,d3,d4,d5,d6,d7= m(inputs_test)
-            jit_output = os.path.join(os.getcwd(), model_name + '.jit.pt') 
+            jit_output = os.path.join(os.getcwd(), chkpnt_name + '.jit.pt') 
             torch.jit.save(m, jit_output)
 
-            onnx_output = os.path.join(os.getcwd(), model_name + '.onnx') 
+            mlmodel_output = os.path.join(os.getcwd(), chkpnt_name + '.mlmodel') 
+            model = ct.convert(m,inputs=[ct.TensorType(shape=inputs_test.shape)])
+            model.save(mlmodel_output)
+
+            onnx_output = os.path.join(os.getcwd(), chkpnt_name + '.onnx') 
             tensor_in = torch.Tensor(data_test['image'].type(torch.FloatTensor))
             print('shape=' + str(tensor_in.shape))
             torch.onnx.export(net, tensor_in, onnx_output, verbose=False, opset_version=11)
