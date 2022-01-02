@@ -82,6 +82,7 @@ if __name__ == '__main__':
 
     train_num = len(tra_img_name_list)
 
+    #I used RescaleT(400) and RandomCrop(360) when I trained the unet network
     stylobj_dataset = StylObjDataset(
         img_name_list=tra_img_name_list,
         lbl_name_list=tra_lbl_name_list,
