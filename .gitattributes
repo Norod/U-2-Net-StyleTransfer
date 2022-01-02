@@ -1,0 +1,5 @@
+saved_models/u2net filter=lfs diff=lfs merge=lfs -text
+saved_models/u2netp filter=lfs diff=lfs merge=lfs -text
+saved_models/u2net/u2net_bce_itr_16000_train_3.835149_tar_0.542587-400x_360x.pth filter=lfs diff=lfs merge=lfs -text
+saved_models/u2netp/u2netp filter=lfs diff=lfs merge=lfs -text
+saved_models/u2netp/u2netp_bce_itr_8000_train_4.034824_tar_0.572258.pth filter=lfs diff=lfs merge=lfs -text
