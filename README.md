@@ -9,6 +9,10 @@ This is an unofficial repo making use of the [code which was made available](htt
 ## [U<sup>2</sup>-Net: Going Deeper with Nested U-Structure for Salient Object Detection](https://arxiv.org/pdf/2005.09007.pdf)
 [Xuebin Qin](https://webdocs.cs.ualberta.ca/~xuebin/), [Zichen Zhang](https://webdocs.cs.ualberta.ca/~zichen2/), [Chenyang Huang](https://chenyangh.com/), [Masood Dehghan](https://sites.google.com/view/masooddehghan), [Osmar R. Zaiane](http://webdocs.cs.ualberta.ca/~zaiane/) and [Martin Jagersand](https://webdocs.cs.ualberta.ca/~jag/)
 
+## Before you clone this repo
+
+Make sure you have [git lfs ](https://git-lfs.github.com/) installed and [configured](https://stackoverflow.com/a/56284009/1495606), so the actual model files will be downloaded rather than just a reference pointer to their location
+
 ## Inference
 
 See [u2net_test.py](./u2net_test.py)
